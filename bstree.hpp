@@ -9,7 +9,7 @@ namespace BSTree {
                 Node *right;
                 Node(int val);
         };
-	      enum traversal_order {pre, in, post};
+	enum traversal_order {pre, in, post};
         class Tree {
                 Node *root;
                 void Add(int m_data, Node *&m_root);
@@ -21,12 +21,12 @@ namespace BSTree {
                 bool Compare(int m_item, Node *&m_root) const;
                 void Deleting(int m_item, Node *&m_root);
                 void Saving(Node *m_root, int space, string m_address) const;
-		            void Appropriation(Node *m_root);
-		            void Auxiliary_fun(ostream& stream, Node *m_root, int space);
+		void Appropriation(Node *m_root);
+		void Auxiliary_fun(ostream& stream, Node *m_root, int space);
          public:
                 Tree();
-        	      Tree(initializer_list<int> list);
-        	      Tree(const Tree& tree);
+        	Tree(initializer_list<int> list);
+        	Tree(const Tree& tree);
                 bool Check() const;
                 void Print() const;
                 void Add(int m_data);
@@ -38,12 +38,12 @@ namespace BSTree {
                 void Saving() const;
                 void Loading(string m_address);
                 void Loading();
-                ~Tree();
-		            void Detour();
-		            auto operator=(const Tree&) -> Tree&;
-        	      auto friend operator<<(ostream& stream, Tree& tree) -> ostream& {
-            		      tree.Auxiliary_fun (stream, tree.root, 0);
-            		      return stream;
-        	      }
+		void Detour();
+		auto operator=(const Tree&) -> Tree&;
+        	auto friend operator<<(ostream& stream, Tree& tree) -> ostream& {
+            		tree.Auxiliary_fun (stream, tree.root, 0);
+            		return stream;
+        	}
+		~Tree();
         };
 }
