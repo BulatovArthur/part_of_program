@@ -286,9 +286,9 @@ void Tree::Auxiliary_fun(ostream& stream, Node *m_root, int space) {
         Auxiliary_fun(stream, m_root->left, space);
 }
 
-auto Tree::operator=(const Tree&) -> Tree& {
+auto Tree::operator=(const Tree& tree) -> Tree& {
 	Clear(this->root);
-    	Appropriation(root);
+    	Appropriation(tree.root);
     	return *this;
 }
 
