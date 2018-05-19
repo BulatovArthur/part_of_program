@@ -287,9 +287,20 @@ void Tree::Auxiliary_fun(ostream& stream, Node *m_root, int space) {
 }
 
 auto Tree::operator=(const Tree& tree) -> Tree& {
-	Clear(this->root);
-    	Appropriation(tree.root);
-    	return *this;
+        Node *ptr  = nullptr;
+        try {
+                ptr->left = new Node(*tree.root->left);
+                ptr->right = new Node(*tree.root->right);
+        }
+        catch(...) {
+                delete ptr;
+                throw;
+        }
+        this->root->data = tree.root->data;
+        swap(root->left, ptr->left);
+        swap(root->right, ptr->right);
+        delete ptr;
+        return *this;
 }
 
 Tree::~Tree() {
